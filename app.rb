@@ -11,10 +11,15 @@ require 'time'
 
 # load main coinbase api
 def setupCoinbase
-  secrets_json = File.read('secrets.json')
-  secrets_hash = JSON.parse( secrets_json )
-  key = secrets_hash['key']
-  secret = secrets_hash['secret']
+  if ENV['RACK_ENV'] == "development"
+    secrets_json = File.read('secrets.json')
+    secrets_hash = JSON.parse( secrets_json )
+    key = secrets_hash['key']
+    secret = secrets_hash['secret']
+  else
+    key = ENV["CB_KEY"]
+    secret = ENV["CB_SECRET"]
+  end
 
   @@client = Coinbase::Wallet::Client.new(api_key: key, api_secret: secret)
   @@account = @@client.primary_account
