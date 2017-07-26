@@ -1,0 +1,1 @@
+Next up:  add pusher for live updates, and get gdax to display on index page
