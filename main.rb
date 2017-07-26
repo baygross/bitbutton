@@ -17,7 +17,7 @@ get_or_post '/' do
     { :type => t['type'],
       :btc => t['amount']['amount'],
       :usd => t['native_amount']['amount'],
-      :time => (Time.parse(t['created_at'])+Time.zone_offset('EST'))
+      :time => (Time.parse(t['created_at'])+Time.zone_offset('EDT'))
                .strftime("%m/%d/%Y at %I:%M%p")
     }
   end
