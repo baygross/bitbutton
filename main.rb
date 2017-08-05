@@ -30,7 +30,7 @@ get_or_post '/' do
   @sell_count = @transactions.count{|t| t[:type]=='sell'}
   @total_fees = (@buy_count + @sell_count) * -1.59
   @total_earnings = @total_balance - 700.00
-  @total_net = (@total_earnings - @total_fees).round(2)
+  @total_net = (@total_earnings + @total_fees).round(2)
 
   @transactions = @transactions[0..13]
 
