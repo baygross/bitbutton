@@ -1,0 +1,70 @@
+body {
+  background:url('bg.png') repeat-y;
+  background-size:contain;
+  font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  letter-spacing: 1px;
+  color:white;
+  padding:3em;
+}
+
+#logo{
+  width:520px;
+  display:block;
+}
+
+#left-col{
+  width:50%;
+  height:100%;
+  float:left;
+}
+#right-col{
+  width:50%;
+  height:100%;
+  float:right;
+}
+
+ul#account-details{
+    font-size:1.3em;
+    margin-left:120px;
+}
+ul#account-details li{
+    display:block;
+    width:250px;
+    padding-top:4px;
+    padding-bottom:4px;
+}
+ul#account-details li span{
+  float:right;
+}
+ul#account-details li.total{
+  border-top:1px solid #fff;
+}
+ul#account-details li.section-end{
+  margin-bottom:16px;
+}
+
+ul#log{
+  margin-left:20px;
+  margin-top:10px;
+}
+ul#log li{
+  display: block;
+  width: 150px;
+  padding: 6px 8px;
+  margin: 2px;
+  /*border: 1px solid #fff;*/
+  font-size:0.8em;
+}
+ul#log li span{
+  font-size: 0.3em;
+  color: khaki;
+  padding-left:14px;
+}
+#elipsis{
+  width: 180px;
+  text-align:center;
+}
+
+i{ font-style:italic; }
+.khaki{ color: khaki; }

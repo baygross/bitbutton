@@ -3,28 +3,49 @@
 <head>
 	<meta charset="utf-8">
 	<title>Bitcoin Button</title>
+	<link rel="icon" type="image/png" href="favicon.png" />
 	<link rel="stylesheet" href="./base.css">
+	<link rel="stylesheet" href="./main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
 <body>
 
-  <% @transactions.each do |t| %>
-    <%= t[:time] + " <b>: &nbsp;" + t[:type] + "</b> &nbsp;" + t[:btc] + " BTC for $" + t[:usd] + " USD.<br />" %>
-  <% end %>
+  <div id="left-col">
 
-  <% @@client.accounts.each do |a|%>
-    <br />
-    <b><%= a.name %> Balance: </b>
+    <img id="logo" src ="./logo.png" />
 
-    <% if a.name == "BTC Wallet" %>
-      $<%= (a.balance()['amount'].to_f * @@client.buy_price()["amount"].to_f).round(2) %>&nbsp;
-      (<%= a.balance()['amount'] %> BTC)
-    <% else %>
-      $<%= a.balance()['amount'].to_f.round(2) %>
-    <% end %>
-  <% end %>
+    <ul id="account-details">
+      <li>USD Wallet: <span>$<%= @usd_balance %></span></li>
+      <li>BTC Wallet: <span>$<%= @btc_balance %></span></li>
+      <li class='section-end total'>Total: <span>$<%= @total_balance %></span></li>
+
+      <li><i>Buy's</i> to date<span><%= @buy_count %></span></li>
+      <li class='section-end'><i>Sell's</i> to date<span><%= @sell_count %></span></li>
+
+      <li>Total fees <span>$<%= @total_fees %></span></li>
+      <li>Total earnings <span>$<%= @total_earnings %></span></li>
+      <li class='section-end total'>Net <span class='khaki'>$<%= @total_net %></span></li>
+    </ul>
+
+
+  </div>
+
+  <div id="right-col">
+
+    <ul id="log">
+      <br/>
+      <% @transactions.each do |t| %>
+        <li>
+           > <%= (t[:type] == "sell" ? "Sold $5 of bitcoin" : "Bought $5 of bitcoin" )%>
+           <br/>
+           <span><%= t[:time].strftime("%m/%d at %I:%M%p")%></span>
+         </li>
+       <% end %>
+     </ul>
+     <div id='elipsis'>...</div>
+  </div>
 
 </body>
 </html>
