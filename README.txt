@@ -6,4 +6,4 @@ TODO
 - add socket (Pusher) for streaming in events
 - debounce presses
 - setup a “sell button”
-- net profit/losses
+
